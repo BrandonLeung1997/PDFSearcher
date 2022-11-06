@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="collocationPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fyp.searcher.controller.SearchCollocationController">
+   <children>
+      <ScrollPane fx:id="collocationScrollPane">
+         <content>
+            <VBox alignment="CENTER">
+               <HBox alignment="CENTER">
+                  <children>
+                     <Label fx:id="lblKeyword" text="Check Collocation">
+                        <font>
+                           <Font name="System Bold" size="18.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                        </HBox.margin>
+                     </Label>
+                  </children>
+               </HBox>
+               <VBox>
+                  <children>
+                     <HBox alignment="CENTER">
+                        <children>
+                           <Label fx:id="lblWord" minWidth="100.0" text="Word:">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Label>
+                           <TextField fx:id="wordTextField" alignment="CENTER" promptText="Search Word" HBox.hgrow="ALWAYS">
+                              <HBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </HBox.margin>
+                           </TextField>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER">
+                        <children>
+                           <Label fx:id="lblWordPOS" minWidth="100.0" text="Word POS:">
+                              <font>
+                                 <Font size="18.0" />
+                              </font>
+                              <HBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </HBox.margin>
+                           </Label>
+                           <JFXCheckBox fx:id="NounCB" text="Noun">
+                              <HBox.margin>
+                                 <Insets right="5.0" />
+                              </HBox.margin>
+                           </JFXCheckBox>
+                           <JFXCheckBox fx:id="VerbCB" text="Verb">
+                              <HBox.margin>
+                                 <Insets right="5.0" />
+                              </HBox.margin>
+                           </JFXCheckBox>
+                           <JFXCheckBox fx:id="AdCB" text="Adj/Adv">
+                              <HBox.margin>
+                                 <Insets right="5.0" />
+                              </HBox.margin>
+                           </JFXCheckBox>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER">
+                        <children>
+                           <JFXButton onAction="#Check" styleClass="button-raised" stylesheets="@../style/style.css" text="Check">
+                              <HBox.margin>
+                                 <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              </HBox.margin>
+                           </JFXButton>
+                        </children>
+                     </HBox>
+                     <HBox alignment="CENTER">
+                        <children>
+                           <JFXSpinner fx:id="CollocationSpinner" prefHeight="0.0" prefWidth="0.0" visible="false" />
+                        </children>
+                     </HBox>
+                  </children>
+               </VBox>
+               <VBox alignment="CENTER">
+                  <JFXListView fx:id="collocationList" minHeight="100.0" />
+               </VBox>
+               <HBox alignment="CENTER">
+                  <JFXButton onAction="#Add" styleClass="button-raised" stylesheets="@../style/style.css" text="Add">
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </HBox>
+            </VBox>
+         </content>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </ScrollPane>
+   </children>
+</StackPane>

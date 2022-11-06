@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXSpinner?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<StackPane fx:id="topRootPane" style="-fx-border-color: #0076ff; -fx-border-width: 5px;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.fyp.searcher.controller.MainController">
+   <children>
+      <VBox>
+         <children>
+            <HBox alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" onMouseDragged="#dragged" onMousePressed="#pressed" styleClass="top-bar" stylesheets="@../style/style.css">
+               <children>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#minimizeApp" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="MINUS" size="20" stroke="BLACK" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#fullScreenApp" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView fill="#ff000000" glyphName="CIRCLE" size="20" stroke="BLACK" strokeWidth="2.0" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton alignment="CENTER" contentDisplay="CENTER" onAction="#closeApp" text=" ">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="CLOSE" size="20" stroke="BLACK" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <GridPane fx:id="gridPane">
+               <columnConstraints>
+                  <ColumnConstraints percentWidth="30.0" />
+                  <ColumnConstraints percentWidth="15.0" />
+                  <ColumnConstraints percentWidth="55.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints vgrow="ALWAYS" />
+               </rowConstraints>
+               <VBox styleClass="right-bar" stylesheets="@../style/style.css">
+                  <HBox alignment="CENTER">
+                     <Label alignment="CENTER" text="Advanced PDF Searcher">
+                        <font>
+                           <Font name="Cambria Bold" size="30.0" />
+                        </font>
+                     </Label>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <Label text="Corpus:">
+                        <font>
+                           <Font name="Cambria" size="18.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets right="10.0" />
+                        </HBox.margin>
+                     </Label>
+                     <TextField fx:id="corpusTextField" disable="true" editable="false" prefHeight="35.0" promptText="Corpus path">
+                        <font>
+                           <Font name="Cambria" size="16.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets right="10.0" />
+                        </HBox.margin>
+                     </TextField>
+                     <JFXButton fx:id="corpusButton" mnemonicParsing="false" onAction="#chooseCorpus" styleClass="button-raised" stylesheets="@../style/style.css" text="Choose">
+                        <font>
+                           <Font name="Cambria" size="16.0" />
+                        </font>
+                     </JFXButton>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <Label prefWidth="105.0" text="Search scope:">
+                        <font>
+                           <Font name="Cambria" size="18.0" />
+                        </font>
+                        <HBox.margin>
+                           <Insets right="10.0" />
+                        </HBox.margin>
+                     </Label>
+                     <ChoiceBox fx:id="searchScopeChoiceBox" prefHeight="35.0" prefWidth="150.0" styleClass="choiceBox" />
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <JFXButton alignment="CENTER" onAction="#checkCollocation" styleClass="button-raised" text="Check Collocation" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+                     <ScrollPane fx:id="keywordListScrollPane" fitToHeight="true" fitToWidth="true">
+                        <VBox fx:id="keywordVBox" alignment="CENTER" spacing="10.0">
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </VBox>
+                        <VBox.margin>
+                           <Insets bottom="10.0" top="10.0" />
+                        </VBox.margin>
+                     </ScrollPane>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <JFXButton fx:id="searchButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#search" styleClass="button-raised" text="Search">
+                        <font>
+                           <Font name="Cambria Bold" size="18.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                        </VBox.margin>
+                     </JFXButton>
+                     <JFXButton fx:id="resetButton" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#reset" styleClass="button-raised" stylesheets="@../style/style.css" text="Reset">
+                        <font>
+                           <Font name="Cambria Bold" size="18.0" />
+                        </font>
+                        <VBox.margin>
+                           <Insets bottom="20.0" left="50.0" right="50.0" top="20.0" />
+                        </VBox.margin>
+                     </JFXButton>
+                     <HBox fx:id="loadingArea" alignment="CENTER">
+                        <Label text="Loading">
+                           <font>
+                              <Font name="Cambria" size="18.0" />
+                           </font>
+                        </Label>
+                        <Circle fx:id="loadingCircle1" fill="DODGERBLUE" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <Circle fx:id="loadingCircle2" fill="#ff541f" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <Circle fx:id="loadingCircle3" fill="#27ff1f" radius="10.0" stroke="BLACK" strokeType="INSIDE">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </Circle>
+                        <VBox.margin>
+                           <Insets bottom="10.0" top="10.0" />
+                        </VBox.margin>
+                     </HBox>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </VBox>
+               </VBox>
+               <VBox alignment="TOP_CENTER" prefHeight="810.0" prefWidth="378.0" GridPane.columnIndex="1">
+                  <Label text="Searching Result:">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="20.0" />
+                     </VBox.margin>
+                  </Label>
+                  <JFXListView fx:id="resultListView" VBox.vgrow="ALWAYS" />
+               </VBox>
+               <VBox fx:id="rightVBox" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="1024.0" prefWidth="1024.0" styleClass="right-bar" stylesheets="@../style/style.css" GridPane.columnIndex="2">
+                  <children>
+                     <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <children>
+                           <Label fx:id="lblPdfName" text="PDF file name">
+                              <HBox.margin>
+                                 <Insets right="10.0" />
+                              </HBox.margin>
+                              <font>
+                                 <Font name="Cambria Bold" size="24.0" />
+                              </font>
+                           </Label>
+                           <JFXSpinner fx:id="pdfLoadingSpinner" prefHeight="0.0" prefWidth="0.0" visible="false">
+                              <HBox.margin>
+                                 <Insets right="10.0" />
+                              </HBox.margin>
+                           </JFXSpinner>
+                           <JFXButton onAction="#openBrowser" styleClass="button-raised" text="Open in browser" />
+                        </children>
+                        <VBox.margin>
+                           <Insets bottom="5.0" top="5.0" />
+                        </VBox.margin>
+                     </HBox>
+                  </children>
+               </VBox>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

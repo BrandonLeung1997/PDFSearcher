@@ -1,0 +1,85 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.10'
+}
+
+group 'org.fyp'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
+//application {
+//    mainClass = 'com.fyp.searcher.Main'
+//}
+run {
+    mainClassName = 'com.fyp.searcher.Main'
+
+    applicationDefaultJvmArgs += [
+            "--add-opens", "javafx.graphics/javafx.css=ALL-UNNAMED",
+            "--add-opens", "javafx.base/com.sun.javafx.runtime=ALL-UNNAMED",
+            "--add-opens", "javafx.controls/com.sun.javafx.scene.control.behavior=ALL-UNNAMED",
+            "--add-opens", "javafx.controls/com.sun.javafx.scene.control=ALL-UNNAMED",
+            "--add-opens", "javafx.base/com.sun.javafx.binding=ALL-UNNAMED",
+            "--add-opens", "javafx.base/com.sun.javafx.event=ALL-UNNAMED",
+            "--add-opens", "javafx.graphics/com.sun.javafx.stage=ALL-UNNAMED",
+            "--add-opens", "javafx.graphics/com.sun.javafx.scene=ALL-UNNAMED",
+            "--add-exports", "javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix",
+            "--add-exports", "javafx.controls/com.sun.javafx.scene.control=com.jfoenix",
+            "--add-exports", "javafx.base/com.sun.javafx.binding=com.jfoenix",
+            "--add-exports", "javafx.base/com.sun.javafx.event=com.jfoenix",
+            "--add-exports", "javafx.graphics/com.sun.javafx.stage=com.jfoenix",
+            "--add-exports", "javafx.graphics/com.sun.javafx.scene=com.jfoenix",
+            "--add-exports", "javafx.graphics/com.sun.javafx.scene.text=com.jfoenix",
+            "--add-exports", "javafx.graphics/com.sun.javafx.geom=com.jfoenix",
+            "--add-exports", "javafx.graphics/com.sun.javafx.util=com.jfoenix",
+            "--add-exports", "javafx.graphics/com.sun.javafx.scene.traversal=com.jfoenix"
+    ]
+}
+
+javafx {
+    version = '16'
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web']
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+
+    // https://mvnrepository.com/artifact/org.json/json
+    implementation group: 'org.json', name: 'json', version: '20211205'
+    // https://mvnrepository.com/artifact/io.github.typhon0/AnimateFX
+    implementation group: 'io.github.typhon0', name: 'AnimateFX', version: '1.2.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+
+    //implementation 'com.github.Dansoftowner:PDFViewerFX:0.8'
+
+    //socket.io
+    implementation ('io.socket:socket.io-client:2.0.1')
+
+
+    implementation 'com.jfoenix:jfoenix:9.0.10'
+
+    //icon name list
+    //http://javadox.com/de.jensd/fontawesomefx/8.0.0/de/jensd/fx/fontawesome/AwesomeIcon.java.html
+    //implementation 'de.jensd:fontawesomefx-emojione:3.1.1-9.1.2'
+    implementation 'de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2'
+//    implementation 'de.jensd:fontawesomefx-icons525:4.2.0-9.1.2'
+//    implementation 'de.jensd:fontawesomefx-materialdesignfont:2.0.26-9.1.2'
+//    implementation 'de.jensd:fontawesomefx-materialicons:2.2.0-9.1.2'
+//    implementation 'de.jensd:fontawesomefx-octicons:4.3.0-9.1.2'
+//    implementation 'de.jensd:fontawesomefx-weathericons:2.0.10-9.1.2'
+//    implementation 'de.jensd:fontawesomefx-controls:9.1.2'
+//    implementation 'org.controlsfx:controlsfx:11.1.1'
+    implementation group: 'commons-io', name: 'commons-io', version: '2.6'
+
+
+    implementation 'com.github.Dansoftowner:PDFViewerFX:0.8'
+}
+
+test {
+    useJUnitPlatform()
+}
