@@ -19,7 +19,7 @@ public class API {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("x-rapidapi-host", "linguatools-english-collocations.p.rapidapi.com")
-                .header("x-rapidapi-key", "4437db5e68mshc1dc34bc4159ca3p10274djsn7ae03d8dee32")
+                .header("x-rapidapi-key", "")
                 .method("GET", HttpRequest.BodyPublishers.noBody())
                 .build();
         return HttpClient.newHttpClient().sendAsync(request, HttpResponse.BodyHandlers.ofString());
@@ -40,7 +40,7 @@ public class API {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(url))
                     .header("x-rapidapi-host", "linguatools-english-collocations.p.rapidapi.com")
-                    .header("x-rapidapi-key", "4437db5e68mshc1dc34bc4159ca3p10274djsn7ae03d8dee32")
+                    .header("x-rapidapi-key", "")
                     .method("GET", HttpRequest.BodyPublishers.noBody())
                     .build();
 
